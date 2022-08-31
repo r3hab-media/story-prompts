@@ -23,13 +23,13 @@ header {
     font-size: 1.8rem;
     font-weight: 300;
     text-align: center;
-  
+
     span::before {
       content: '\a';
       white-space: pre;
     }
   }
-  
+
   @media print {
     display: none;
   }
@@ -48,34 +48,138 @@ header h4 {
   margin-top: 3rem;
 }
 
-header + article {
+header+article {
   margin-top: 3rem;
 }
 
-.data h3 {
-  margin-top: 2rem;
-
-  span {
-    font-weight: 300;
-  }
+.data {
+  margin-top: 1rem;
 }
 
 button {
-  background: darkslategray;
-  color: lightgray;
   border: 0;
   padding: .5rem 1rem;
   font-size: 1rem;
-  margin-top: 2rem;
-  transition: all .3s ease;
+}
 
-  &:hover {
-    background: darkgray;
-    color: black;
-    cursor: pointer;
+.btn-group {
+  display: flex;
+  justify-content: space-evenly;
+  flex-basis: 100%;
+
+  @media screen and (min-width: 400px) {
+    flex-basis: 40%;
   }
 
-  @media print {
-    display: none;
+  button {
+    background: darkslategray;
+    color: lightgray;
+    margin-top: 2rem;
+    transition: all .3s ease;
+
+    @media screen and (min-width: 450px) {
+      margin-right: .5rem;
+    }
+
+    &:hover {
+      background: darkgray;
+      color: black;
+      cursor: pointer;
+    }
+
+    @media print {
+      display: none;
+    }
+
+    &#newData::before {
+      font: var(--fa-font-solid);
+      content: "\f1c0";
+      margin-right: .5rem;
+    }
+
+    &#print::before {
+      font: var(--fa-font-solid);
+      content: "\f02f";
+      margin-right: .5rem;
+    }
+
+    &#share::before {
+      font: var(--fa-font-solid);
+      content: "\f1e0";
+      margin-right: .5rem;
+    }
+  }
+
+  @media screen and (min-width: 450px) {
+    justify-content: unset;
+  }
+}
+
+.card {
+  background: darkslategray;
+  color: lightgray;
+  padding: 1rem;
+
+  &+& {
+    margin-top: 1rem;
+
+    @media print {
+      margin-top: unset;
+    }
+  }
+
+  h3 {
+    margin-top: 1rem;
+
+    @media print {
+      margin-top: unset;
+    }
+
+    span {
+      font-weight: 300;
+    }
+  }
+
+  &__body {
+
+    details {
+
+      @media print {
+        display: none;
+      }
+
+      summary {
+        font-weight: 900;
+        margin: 1rem 0 .5rem;
+        cursor: help;
+      }
+    }
+
+    .change {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 2rem;
+
+      @media print {
+        display: none;
+      }
+
+      @media screen and (min-width: 450px) {
+        flex-direction: row;
+      }
+
+      button {
+        background: lightgray;
+        color: darkslategray;
+        margin-top: 1rem;
+
+        @media screen and (min-width: 450px) {
+          margin-top: 1rem;
+          margin-left: 1rem;
+        }
+      }
+    }
   }
 }

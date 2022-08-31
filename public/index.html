@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,30 +9,112 @@
   <script src="js/app.js" defer></script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <nav></nav>
   <main id="frame">
     <header>
       <h1>Welcome to <span>Story Prompts!</span></h1>
-      <h4>Coming up with an idea for a story can be a nightmare. This website aims to ease your writer's block by helping you get started on a story</h4>
+      <h4>Coming up with an idea for a story can be a nightmare. This website aims to ease your writer's block by
+        helping you get started on a story</h4>
     </header>
     <header>
       <h1>Thanks for using Story Prompts!</h1>
       <h4>We welcome you back anytime.</h4>
     </header>
     <div class="btn-group">
-      <button type="button" id="newData">Create New Data</button>
-      <button type="button" onclick="window.print()">Print it!</button>
+      <button type="button" id="newData">New Data</button>
+      <button type="button" id="print" onclick="window.print()">Print</button>
+      <!-- <button type="button" id="share">Share</button> -->
     </div>
     <article class="data">
-      <h3>Main Character: <br><span id="mainCharacter"></span></h3>
-      <h3>Other Characters: <br><span id="otherCharacters"></span></h3>
-      <h3>Setting: <br><span id="setting"></span></h3>
-      <h3>Theme: <br><span id="theme"></span></h3>
-      <h3>Conflict: <br><span id="conflict"></span></h3>
-      <h3>Archetype: <br><div id="archetype"></div></h3>
+      <div class="card">
+        <h3 class="card__title">Main Character</h3>
+        <div class="card__body">
+          <details>
+            <summary>What is the main character?</summary>
+            The main character is...
+          </details>
+          <h3><span id="mainCharacter"></span></h3>
+          <div class="change">
+            <h4>Don't like your Main Character?</h4>
+            <button type="button" onclick="randomMainGenerator()">Change it!</button>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="card__title">Other Characters</h3>
+        <div class="card__body">
+          <details>
+            <summary>How are other characters used?</summary>
+            Other characters are used when...
+          </details>
+          <h3><span id="otherCharacters"></span></h3>
+          <div class="change">
+            <h4>Don't like your Other Characters?</h4>
+            <button type="button" onclick="randomOthersGenerator()">Change them!</button>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="card__title">Setting</h3>
+        <div class="card__body">
+          <details>
+            <summary>What is a setting?</summary>
+            A setting is...
+          </details>
+          <h3><span id="setting"></span></h3>
+          <div class="change">
+            <h4>Don't like this setting?</h4>
+            <button type="button" onclick="randomSettingGenerator()">Change it!</button>
+          </div>
+        </div>
+      </div>      
+      <div class="card">
+        <h3 class="card__title">Theme</h3>
+        <div class="card__body">
+          <details>
+            <summary>What is a theme?</summary>
+            A theme is...
+          </details>
+          <h3><span id="theme"></span></h3>
+          <div class="change">
+            <h4>Don't like this setting?</h4>
+            <button type="button" onclick="randomThemeGenerator()">Change it!</button>
+          </div>
+        </div>
+      </div>      
+      <div class="card">
+        <h3 class="card__title">Conflict</h3>
+        <div class="card__body">
+          <details>
+            <summary>What is a conflict?</summary>
+            A conflict is...
+          </details>
+          <h3><span id="conflict"></span></h3>
+          <div class="change">
+            <h4>Don't like this conflict?</h4>
+            <button type="button" onclick="randomConflictGenerator()">Change it!</button>
+          </div>
+        </div>
+      </div>      
+      <div class="card">
+        <h3 class="card__title">Archetype</h3>
+        <div class="card__body">
+          <details>
+            <summary>What is an archeteype?</summary>
+            An archeteype is...
+          </details>
+          <h3><span id="archetype"></span></h3>
+          <div class="change">
+            <h4>Don't like this archetype?</h4>
+            <button type="button" onclick="randomArchetypeGenerator()">Change it!</button>
+          </div>
+        </div>
+      </div>      
     </article>
   </main>
   <footer></footer>
 </body>
+
 </html>

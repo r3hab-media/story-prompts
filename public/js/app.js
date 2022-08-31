@@ -141,10 +141,12 @@ const archetypes = [
 
 const archetypesTemplate = (types) => {
 	return `
-    <h3><span><i>${types.type}</i></span></h3>
+    <h4><span><strong><i>${types.type}</i></strong></span></h4>
     <p class="desc">${types.desc}</p>
-    <h3><span><u>Strengths:</u> ${types.strengths}</span></h3>
-    <h3><span><u>Weaknesses:</u> ${types.weaknesses}</span></h3>  
+    <br>
+    <h5><span><u><strong>Strengths:</strong></u> ${types.strengths}</span></h5>
+    <br>
+    <h5><span><u><strong>Weaknesses:</strong></u> ${types.weaknesses}</span></h5>  
   `;
 };
 
