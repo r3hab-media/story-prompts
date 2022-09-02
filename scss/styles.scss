@@ -121,7 +121,9 @@ button {
   &:hover {
     cursor: pointer;
   }
+}
 
+button, summary, a {
   &:focus {
     outline: 2px solid #005fec;
     outline-offset: 4px;
@@ -129,7 +131,7 @@ button {
   
   &:focus:not(:focus-visible) {
     outline: none;
-  }  
+  }
 }
 
 .btn-group {
