@@ -16,71 +16,115 @@
   <main>
     <header>
       <h1>Welcome to <span>Story Prompts!</span></h1>
-      <img src="https://www.tlnt.com/wp-content/uploads/sites/4/2018/04/story.jpeg" alt="">
-      <h4>Coming up with an idea for a story can be a nightmare. This website aims to ease your writer's block by
-        helping you get started on a story</h4>
+      <div class="bg"></div>
+      <h4>Coming up with an idea for a story can be a nightmare. We aim to ease your writer's block by helping you get started on a story.</h4>
     </header>
     <header>
       <h1>Thanks for using Story Prompts!</h1>
       <h4>We welcome you back anytime.</h4>
     </header>
+    <div class="row">
+      <div class="filter">
+        <h3>Filter: <span>Simply uncheck the story parts you don't want. We'll do the rest!</span></h3>
+        <label class="filter__option" for="cardMain">Main Character
+          <input type="checkbox" id="cardMain" value="main" checked>
+          <span class="checkmark"></span>
+        </label>
+        <label class="filter__option" for="filterOther">Other Character
+          <input type="checkbox" id="filterOther" value="other" checked>
+          <span class="checkmark"></span>
+        </label>
+        <label class="filter__option" for="filterSetting">Setting
+          <input type="checkbox" id="filterSetting" value="setting" checked>
+          <span class="checkmark"></span>
+        </label>
+        <label class="filter__option" for="filterTheme">Theme
+          <input type="checkbox" id="filterTheme" value="theme" checked>
+          <span class="checkmark"></span>
+        </label>
+        <label class="filter__option" for="filterConflict">Conflict
+          <input type="checkbox" id="filterConflict" value="conflict" checked>
+          <span class="checkmark"></span>
+        </label>
+        <label class="filter__option" for="filterArchetype">Archetype
+          <input type="checkbox" id="filterArchetype" value="archetype" checked>
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </div>
     <div class="btn-group">
       <button type="button" id="newData">New Data</button>
       <button type="button" id="print" onclick="window.print()">Print</button>
       <!-- <button type="button" id="share">Share</button> -->
     </div>
     <article class="data">
-      <div class="row">
-        <div class="filter">
-          <h3>Filter:</h3>
-          <label class="filter__option" for="main">
-            <input type="checkbox" id="main">
-            Main Character
-          </label>
-          <label class="filter__option" for="other">
-            <input type="checkbox" id="other">
-            Other Character
-          </label>          
-          <label class="filter__option" for="setting">
-            <input type="checkbox" id="setting">
-            Setting
-          </label>
-          <label class="filter__option" for="theme">
-            <input type="checkbox" id="theme">
-            Theme
-          </label>
-          <label class="filter__option" for="conflict">
-            <input type="checkbox" id="conflict">
-            Conflict
-          </label>
-          <label class="filter__option"  for="archetype">
-            <input type="checkbox" id="archetype">
-            Archeteype
-          </label>                                                 
-        </div>
-      </div>
-      <div class="row">
+      <div class="row filter-items" data-text="main">
         <div class="card">
           <h3 class="card__title">Main Character</h3>
           <div class="card__body">
-            <details>
-              <summary>What is the main character?</summary>
-              The main character is...
+              <details>
+                <summary>How are other characters used?</summary>
+                A character is a person, animal, being, creature, or thing in a story. Writers use characters to perform the actions and speak dialogue, moving the story along a plot line. The main character may be part of the major characters of the story. There are two types of major characters:<br><br>
+                <h5>Character Types:</h5>
+                <a href="#!" class="dialog" onclick="window.protagonist.show()">Protagonist</a>
+                <dialog id="protagonist">
+                  The Protagonist, also known as an agonist, is the lead character of the story around which the whole
+                  plot revolves. It is a misconception that the protagonist is always the hero of the story. 90% of the
+                  time we observe the protagonists are good characters yet they can be virtuous or evil or neutral.
+                  <button class="close" onclick="window.protagonist.close()">x</button>
+                </dialog> |
+                <a href="#!" class="dialog" onclick="window.antagonist.show()">Antagonist</a>
+                <dialog id="antagonist">
+                  The antagonist is anti-agonist or anti-protagonist. The antagonist is the opposing force for the
+                  protagonist. It causes obstacles and creates challenges that keep the plot moving.
+                  <br><br>
+                  Just like the protagonist, the antagonist can be evil or good, although it is observed that antagonists
+                  are most of the times evil. They are the classic villains of the plots.
+                  <br><br>
+                  The protagonist and the antagonist are complementary to each other.
+                  <button class="close" onclick="window.antagonist.close()">x</button>
+                </dialog>
+              </details>
             </details>
+
             <h3><span id="mainCharacter"></span></h3>
+            <div class="nat">
+              <h5>Different Nationality?</h5>
+              <div class="btn-group">
+                <button class="small" onclick="randomGermanGenerator()">German</button>
+                <button class="small" onclick="randomFrenchGenerator()">French</button>
+              </div>
+            </div>            
             <div class="change">
-              <h4>Don't like your Main Character?</h4>
+              <h4>Don't like your Main Character?<br><span>Defaults to US nationality</span></h4>
               <button type="button" onclick="randomMainGenerator()">Change it!</button>
             </div>
           </div>
         </div>
         <div class="details">
           <h3><span>What is the Main Character?</span></h3>
-          <p>The main character is... Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus excepturi a amet
-            beatae aperiam vitae sequi est aliquid sit ut?</p>
+          <p>A character is a person, animal, being, creature, or thing in a story. Writers use characters to perform the actions and speak dialogue, moving the story along a plot line. The main character may be part of the major characters of the story. There are two types of major characters:</p>
+            <hr>
+            <h5>Character Types:</h5>
+            <details>
+              <summary>Protagonist</summary>
+              The Protagonist, also known as an agonist, is the lead character of the story around which the whole plot
+              revolves. It is a misconception that the protagonist is always the hero of the story. 90% of the time we
+              observe the protagonists are good characters yet they can be virtuous or evil or neutral.
+            </details>
+            <details>
+              <summary>Antagonist</summary>
+              The antagonist is anti-agonist or anti-protagonist. The antagonist is the opposing force for the
+              protagonist. It causes obstacles and creates challenges that keep the plot moving.
+              <br><br>
+              Just like the protagonist, the antagonist can be evil or good, although it is observed that antagonists are
+              most of the times evil. They are the classic villains of the plots.
+              <br><br>
+              The protagonist and the antagonist are complementary to each other.
+            </details>
         </div>
       </div>
-      <div class="row">
+      <div class="row filter-items" data-text="other">
         <div class="card">
           <h3 class="card__title">Other Characters</h3>
           <div class="card__body">
@@ -91,13 +135,6 @@
               to the devoted timid servant. But does every story have these characters? Is it important to include all
               kinds of characters? What exactly is their role?<br><br>
               <h5>Character Types:</h5>
-              <a href="#!" class="dialog" onclick="window.protagonist.show()">Protagonist</a>
-              <dialog id="protagonist">
-                The Protagonist, also known as an agonist, is the lead character of the story around which the whole
-                plot revolves. It is a misconception that the protagonist is always the hero of the story. 90% of the
-                time we observe the protagonists are good characters yet they can be virtuous or evil or neutral.
-                <button class="close" onclick="window.protagonist.close()">x</button>
-              </dialog> |
               <a href="#!" class="dialog" onclick="window.hero.show()">Hero</a>
               <dialog id="hero">
                 When we say the word ‘hero’, it is the classic character that comes to our mind. The lead character is
@@ -116,17 +153,6 @@
                 revolves around them. You can consider it as the plot from the point of view of the villain.
                 <button class="close" onclick="window.villain.close()">x</button>
               </dialog> |
-              <a href="#!" class="dialog" onclick="window.antagonist.show()">Antagonist</a>
-              <dialog id="antagonist">
-                The antagonist is anti-agonist or anti-protagonist. The antagonist is the opposing force for the
-                protagonist. It causes obstacles and creates challenges that keep the plot moving.
-                <br><br>
-                Just like the protagonist, the antagonist can be evil or good, although it is observed that antagonists
-                are most of the times evil. They are the classic villains of the plots.
-                <br><br>
-                The protagonist and the antagonist are complementary to each other.
-                <button class="close" onclick="window.antagonist.close()">x</button>
-              </dialog> |
               <a href="#!" class="dialog" onclick="window.deuteragonist.show()">Deuteragonist</a>
               <dialog id="deuteragonist">
                 In easy terms, they are the sidekicks of the protagonist. You can consider them as the secondary
@@ -134,15 +160,7 @@
                 <br><br>
                 Although they are ‘secondary’, they are just as important as the protagonists.
                 <button class="close" onclick="window.deuteragonist.close()">x</button>
-              </dialog> |
-              <a href="#!" class="dialog" onclick="window.foil.show()">Deuteragonist</a>
-              <dialog id="foil">
-                In easy terms, they are the sidekicks of the protagonist. You can consider them as the secondary
-                protagonists as they are seen just as close to the protagonists, and are usually their companions.
-                <br><br>
-                Although they are ‘secondary’, they are just as important as the protagonists.
-                <button class="close" onclick="window.foil.close()">x</button>
-              </dialog> |
+              </dialog>
             </details>
             <h3><span id="otherCharacters"></span></h3>
             <div class="change">
@@ -161,12 +179,6 @@
           <hr>
           <h5>Character Types:</h5>
           <details>
-            <summary>Protagonist</summary>
-            The Protagonist, also known as an agonist, is the lead character of the story around which the whole plot
-            revolves. It is a misconception that the protagonist is always the hero of the story. 90% of the time we
-            observe the protagonists are good characters yet they can be virtuous or evil or neutral.
-          </details>
-          <details>
             <summary>
               Hero
             </summary>
@@ -182,16 +194,6 @@
             <summary>Villain Protagonist</summary>
             As mentioned earlier, the protagonist can be evil. So they are villains, and more or less the story revolves
             around them. You can consider it as the plot from the point of view of the villain.
-          </details>
-          <details>
-            <summary>Antagonist</summary>
-            The antagonist is anti-agonist or anti-protagonist. The antagonist is the opposing force for the
-            protagonist. It causes obstacles and creates challenges that keep the plot moving.
-            <br><br>
-            Just like the protagonist, the antagonist can be evil or good, although it is observed that antagonists are
-            most of the times evil. They are the classic villains of the plots.
-            <br><br>
-            The protagonist and the antagonist are complementary to each other.
           </details>
           <details>
             <summary>Deuteragonist</summary>
@@ -210,7 +212,7 @@
           </details>
         </div>
       </div>
-      <div class="row">
+      <div class="row filter-items" data-text="setting">
         <div class="card">
           <h3 class="card__title">Setting</h3>
           <div class="card__body">
@@ -237,7 +239,7 @@
           </p>
         </div>
       </div>
-      <div class="row">
+      <div class="row filter-items" data-text="theme">
         <div class="card">
           <h3 class="card__title">Theme</h3>
           <div class="card__body">
@@ -261,7 +263,7 @@
             about" and its thematic statement being "what the work says about the subject".</p>
         </div>
       </div>
-      <div class="row">
+      <div class="row filter-items" data-text="conflict">
         <div class="card">
           <h3 class="card__title">Conflict</h3>
           <div class="card__body">
@@ -285,7 +287,7 @@
             conflict is the challenge main characters need to solve to achieve their goals.</p>
         </div>
       </div>
-      <div class="row">
+      <div class="row filter-items" data-text="archetype">
         <div class="card">
           <h3 class="card__title">Archetype</h3>
           <div class="card__body">

@@ -52,6 +52,36 @@ showRandomUserData = (randomUsers) => {
 	document.getElementById("otherCharacters").innerHTML = others;
 };
 
+//Get german names
+const randomGermanGenerator = () => {
+	fetch("https://randomuser.me/api/?nat=de")
+		.then((res) => {
+			return res.json();
+		})
+		.then((data) => {
+			showRandomGermanData(data);
+		});
+};
+
+showRandomGermanData = (randomGerman) => {
+	document.getElementById("mainCharacter").innerText = `${randomGerman.results[0].name.first} ${randomGerman.results[0].name.last}`;
+};
+
+//Get french names
+const randomFrenchGenerator = () => {
+	fetch("https://randomuser.me/api/?nat=fr")
+		.then((res) => {
+			return res.json();
+		})
+		.then((data) => {
+			showRandomFrenchData(data);
+		});
+};
+
+showRandomFrenchData = (randomFrench) => {
+	document.getElementById("mainCharacter").innerText = `${randomFrench.results[0].name.first} ${randomFrench.results[0].name.last}`;
+};
+
 //Get setting
 const settings = [
 	`A young girl who experiences bullying at school is set in a suburb of Atlanta, GA in the 1980s`,
@@ -138,57 +168,67 @@ const archetypes = [
 		desc: "The romantic lead who’s guided by the heart.",
 		strengths: "humanism, passion, conviction",
 		weaknesses: "naivete, irrationality",
-	}, {
-    type: 'The Hero',
-    desc: 'The protagonist who rises to meet a challenge and saves the day.',
-    strenghts: 'courage, perseverance, honor',
-    weaknesses: 'overconfidence, hubris'
-  }, {
-    type: 'The Outlaw',
-    desc: 'The rebel who won’t abide by society’s demands.',
-    strenghts: 'independent thinking, virtue, owes no favors',
-    weaknesses: 'self-involved, potentially criminal'
-  }, {
-    type: 'The Explorer',
-    desc: 'A character naturally driven to push the boundaries of the status quo and explore the unknown.',
-    strenghts: 'curious, driven, motivated by self-improvement',
-    weaknesses: 'restless, unreliable, never satisfied'
-  }, {
-    type: 'The Sage',
-    desc: 'A wise figure with knowledge for those who inquire. The mother figure or mentor is often based on this archetype.',
-    strenghts: 'wisdom, experience, insight',
-    weaknesses: 'cautious, hesitant to actually join the action'
-  }, {
-    type: 'The Innocent',
-    desc: 'A morally pure character, often a child, whose only intentions are good.',
-    strenghts: 'morality, kindness, sincerity',
-    weaknesses: 'vulnerable, naive, rarely skilled'
-  }, {
-    type: 'The Creator',
-    desc: 'A motivated visionary who creates art or structures during the narrative.',
-    strenghts: 'creativity, willpower, conviction',
-    weaknesses: 'self-involvement, single-mindedness, lack of practical skills'
-  }, {
-    type: 'The Ruler',
-    desc: 'A character with legal or emotional power over others.',
-    strenghts: 'omnipotence, status, resources',
-    weaknesses: 'aloofness, disliked by others, out of touch'
-  }, {
-    type: 'The Caregiver',
-    desc: 'A character who continually supports others and makes sacrifices on their behalf.',
-    strenghts: 'honorable, selfless, loyal',
-    weaknesses: 'lacking personal ambition or leadership'
-  }, {
-    type: 'The Everyman',
-    desc: 'A relatable character who feels recognizable from daily life.',
-    strenghts: 'grounded, salt-of-the-earth, relatable',
-    weaknesses: 'lacking special powers, often unprepared for what’s to come'
-  }, {
-    type: 'The Jester',
-    desc: 'A funny character or trickster who provides comic relief, but may also speak important truths.',
-    strenghts: 'funny, disarming, insightful',
-    weaknesses: 'can be obnoxious and superficial'
-  }
+	},
+	{
+		type: "The Hero",
+		desc: "The protagonist who rises to meet a challenge and saves the day.",
+		strenghts: "courage, perseverance, honor",
+		weaknesses: "overconfidence, hubris",
+	},
+	{
+		type: "The Outlaw",
+		desc: "The rebel who won’t abide by society’s demands.",
+		strenghts: "independent thinking, virtue, owes no favors",
+		weaknesses: "self-involved, potentially criminal",
+	},
+	{
+		type: "The Explorer",
+		desc: "A character naturally driven to push the boundaries of the status quo and explore the unknown.",
+		strenghts: "curious, driven, motivated by self-improvement",
+		weaknesses: "restless, unreliable, never satisfied",
+	},
+	{
+		type: "The Sage",
+		desc: "A wise figure with knowledge for those who inquire. The mother figure or mentor is often based on this archetype.",
+		strenghts: "wisdom, experience, insight",
+		weaknesses: "cautious, hesitant to actually join the action",
+	},
+	{
+		type: "The Innocent",
+		desc: "A morally pure character, often a child, whose only intentions are good.",
+		strenghts: "morality, kindness, sincerity",
+		weaknesses: "vulnerable, naive, rarely skilled",
+	},
+	{
+		type: "The Creator",
+		desc: "A motivated visionary who creates art or structures during the narrative.",
+		strenghts: "creativity, willpower, conviction",
+		weaknesses: "self-involvement, single-mindedness, lack of practical skills",
+	},
+	{
+		type: "The Ruler",
+		desc: "A character with legal or emotional power over others.",
+		strenghts: "omnipotence, status, resources",
+		weaknesses: "aloofness, disliked by others, out of touch",
+	},
+	{
+		type: "The Caregiver",
+		desc: "A character who continually supports others and makes sacrifices on their behalf.",
+		strenghts: "honorable, selfless, loyal",
+		weaknesses: "lacking personal ambition or leadership",
+	},
+	{
+		type: "The Everyman",
+		desc: "A relatable character who feels recognizable from daily life.",
+		strenghts: "grounded, salt-of-the-earth, relatable",
+		weaknesses: "lacking special powers, often unprepared for what’s to come",
+	},
+	{
+		type: "The Jester",
+		desc: "A funny character or trickster who provides comic relief, but may also speak important truths.",
+		strenghts: "funny, disarming, insightful",
+		weaknesses: "can be obnoxious and superficial",
+	},
 	//https://www.masterclass.com/articles/writing-101-the-12-literary-archetypes#Xd05Y8CaLcnECgVeJdSfZ
 ];
 
@@ -199,7 +239,7 @@ const archetypesTemplate = (types) => {
     <br>
     <h5><span><u><strong>Strengths:</strong></u> ${types.strengths}</span></h5>
     <br>
-    <h5><span><u><strong>Weaknesses:</strong></u> ${types.weaknesses}</span></h5>  
+    <h5><span><u><strong>Weaknesses:</strong></u> ${types.weaknesses}</span></h5>
   `;
 };
 
@@ -207,3 +247,24 @@ const randomArchetypeGenerator = () => {
 	let randomArchetype = archetypes[Math.floor(Math.random() * archetypes.length)];
 	document.getElementById("archetype").innerHTML = archetypesTemplate(randomArchetype);
 };
+
+//checkboxes
+const elements = document.querySelectorAll(".filter-items");
+const inputs = document.querySelectorAll("input");
+inputs.forEach((item) => {
+	item.addEventListener("change", function () {
+		if (this.checked) {
+			elements.forEach((e) => {
+				if (e.getAttribute("data-text") == this.value) {
+					e.style.display = "flex";
+				}
+			});
+		} else {
+			elements.forEach((e) => {
+				if (e.getAttribute("data-text") == this.value) {
+					e.style.display = "none";
+				}
+			});
+		}
+	});
+});

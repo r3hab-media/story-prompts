@@ -40,14 +40,45 @@ img {
 }
 
 header {
+  margin-top: 2rem;
   h1 {
     font-size: 1.8rem;
     font-weight: 300;
     text-align: center;
+    transition: all .3s ease;
 
     span::before {
       content: '\a';
       white-space: pre;
+
+      @media screen and (min-width: 600px) {
+        content: '';
+        white-space: unset;
+      }
+    }
+
+    @media screen and (min-width: 600px) {
+      font-size: 2.5rem;
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 3rem;
+    }  
+    
+    @media screen and (min-width: 992px) {
+      font-size: 4rem;
+    }      
+  }
+
+  .bg {
+    background: url('https://libertybarnchurch.com/wp-content/uploads/sites/9/2011/11/kids-reading-background.jpg') center center no-repeat;
+    background-size: cover;
+    height: 200px;
+    margin-top: 2rem;
+    transition: all .4s ease;
+
+    @media screen and (min-width: 768px) {
+      height: 300px;
     }
   }
 
@@ -82,9 +113,23 @@ button {
   padding: .5rem 1rem;
   font-size: 1rem;
 
+  &.small {
+    padding: .2rem .3rem;
+    font-size: .8rem;
+  }
+
   &:hover {
     cursor: pointer;
   }
+
+  &:focus {
+    outline: 2px solid #005fec;
+    outline-offset: 4px;
+  }
+  
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }  
 }
 
 .btn-group {
@@ -153,6 +198,27 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+
+    h3 {
+      margin-bottom: 1rem;
+
+      span {
+        font-weight: 500;
+        font-size: 80%;
+        font-style: italic;
+
+        &::before {
+          content: '\a *';
+          white-space: pre;
+          font-weight: 500;
+          color: red;
+        }
+      }
+    }
+
+    @media print {
+      display: none;
+    }
   }  
 }
 
@@ -216,6 +282,13 @@ details {
     }
   }
 
+  &__title {
+    @media print {
+      text-decoration: underline;
+      margin-bottom: 1rem;
+    }
+  }
+
   &__body {
 
     details {
@@ -235,12 +308,40 @@ details {
       }
     }
 
+    .nat {
+      background-color: lightgray;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-top: 1rem;
+      padding: .5rem;
+
+      .btn-group {
+        justify-content: flex-start;
+
+        button + button {
+          margin-left: .5rem;
+        }
+      }
+    }    
+
     .change {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
       margin-top: 2rem;
+
+      h4 span {
+        text-align: center;
+        font-size: 80%;
+        font-weight: 300;
+
+        &::before {
+          content: '*'
+        }
+      }
 
       @media print {
         display: none;
@@ -301,3 +402,59 @@ footer {
     }
   }
 }
+
+//checkboxes
+.filter__option {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    &:checked ~ .checkmark {
+      background-color: #2196f3;
+    }
+    
+    &:checked ~ .checkmark:after {
+      display: block;
+    }
+  }
+}
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    &:after {
+      left: 9px;
+      top: 5px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+    }
+
+    &::hover input ~ .checkmark {
+      background-color: #ccc;
+    }
+  }
